@@ -13,3 +13,8 @@ miyu-webui-theme-claude-style —— Miyu 网页的 Claude 风格外观包
 - web/brand/spark.svg、word.svg：Claude 的星芒标志和字标，出自 dsh-claude-style，属 Anthropic，不适用 MIT 许可。
 
 以上属于 Anthropic 的图案只为致敬原版而保留。权利人要求的话，会从本包里移除。
+
+商标声明：Claude、Anthropic 的名称和标志是 Anthropic PBC 的商标。本包是第三方作品，与 Anthropic 没有关联，
+也没有经过 Anthropic 的认可或授权。
+Trademark notice: Claude, Anthropic and their logos are trademarks of Anthropic PBC. This package is a third-party
+work, not affiliated with, endorsed by or sponsored by Anthropic.

@@ -16,8 +16,8 @@ miyu pkg install miyu-webui-theme-claude-style
 
 代码 MIT（见 LICENSE）。字体 Inter、Noto Serif 是 OFL。Clawd 帧图和 Claude 的标志属于 Anthropic，不在 MIT 范围内，见 NOTICE。
 
-这是非官方的爱好者作品，和 Anthropic 没有关联。
+Claude、Anthropic 的名称和标志是 Anthropic PBC 的商标。本包是第三方作品，与 Anthropic 没有关联，也没有经过 Anthropic 的认可或授权。
 
 ---
 
-A Miyu web UI theme that looks like the Claude web app, ported from dsh-claude-style. Code MIT; Anthropic artwork excluded, see NOTICE. Unofficial fan work, not affiliated with Anthropic.
+A Miyu web UI theme that looks like the Claude web app, ported from dsh-claude-style. Code MIT; Anthropic artwork excluded, see NOTICE. Claude, Anthropic and their logos are trademarks of Anthropic PBC. This is a third-party package, not affiliated with, endorsed by or sponsored by Anthropic.
