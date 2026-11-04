@@ -1,0 +1,25 @@
+/* 主题「Claude 风格」的部件样式：每条都在 :root[data-skin="claude"] 下面、只挑部件名。变量做不到的才写这里。
+   字随包带着（fonts/，Inter、Noto Serif，SIL OFL 1.1，dsh-claude-style 裁过的那两份） */
+@font-face { font-family: "Claude Style Inter"; src: url("fonts/InterVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Claude Style Noto Serif"; src: url("fonts/NotoSerifVariable.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+
+/* 你的话用界面的无衬线字，回答才用衬线（照 Claude） */
+:root[data-skin="claude"] [data-part="message.user"] { font-family: var(--font-ui); }
+/* 回答里的标题：衬线、略收字距 */
+:root[data-skin="claude"] [data-part="message.answer"] :is(h1, h2, h3, h4) { letter-spacing: -0.01em; border-bottom: 0; padding-bottom: 0; }
+
+/* 输入框做成单行：写字的地方和右边的按钮排成一行，框一行高约 40px；回车图标在框里右边 */
+:root[data-skin="claude"] [data-part="composer"] { display: flex; flex-wrap: wrap; align-items: flex-end; box-shadow: none; }
+/* 框里放附件的那一排（挂载位 composer.head）独占一行，在写字的地方上面 */
+:root[data-skin="claude"] [data-part="composer"] > div:has(+ div > [data-part="composer.input"]) { flex: 0 0 100%; }
+:root[data-skin="claude"] [data-part="composer"]:focus-within { box-shadow: 0 0 0 0.5px color-mix(in srgb, var(--text) 30%, transparent); }
+:root[data-skin="claude"] [data-part="composer"] > div:has(> [data-part="composer.input"]) { flex: 1 1 60%; min-width: 0; }
+:root[data-skin="claude"] [data-part="composer.bar"] { flex: none; padding: 0 6px 6px 0; }
+:root[data-skin="claude"] [data-part="composer.input"] { padding-bottom: 9px; }
+:root[data-skin="claude"] [data-part="composer.send"] { width: 28px; height: 28px; }
+:root[data-skin="claude"] [data-part="table"] { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+/* 框下面那一行：界面的无衬线字，灰（原版「Accept edits ⌄ … DeepSeek V4 Flash High」） */
+:root[data-skin="claude"] [data-part="composer.footer"], :root[data-skin="claude"] [data-part="composer.footer"] * { font-family: var(--font-ui); }
+:root[data-skin="claude"] [data-part="composer.footer"] { color: var(--text-soft); font-size: 13px; }
+/* 提问、确认把框整个换成问答面板时（is-taken）回到竖排：单行的横排会把面板挤没 */
+:root[data-skin="claude"] [data-part="composer"][data-state="taken"] { display: block; }

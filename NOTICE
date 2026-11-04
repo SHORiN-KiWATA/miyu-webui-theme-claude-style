@@ -1,0 +1,15 @@
+miyu-webui-theme-claude-style —— Miyu 网页的 Claude 风格外观包
+================================================================
+
+移植自 Nwflower 的 dsh-claude-style（https://github.com/Nwflower/dsh-claude-style，MIT）。代码是重写的，
+颜色、形状照它的 docs/STYLE.md；没有用它的 Sodium 渲染引擎（PolyForm Shield 1.0.0）。
+左栏、对话页照 claude.ai 官网的样子调过。这是非官方的爱好者作品，和 Anthropic 没有关联。
+
+本包带的第三方的东西：
+
+- web/fonts/：Inter、Noto Serif（dsh-claude-style 裁过的两份），SIL Open Font License 1.1，见 web/fonts/OFL.txt。
+- web/mascot/：输入框上的像素螃蟹 Clawd 的帧图，出自 dsh-claude-style。Clawd 是 Anthropic 的角色形象，
+  这些帧图不适用 MIT 许可。
+- web/brand/spark.svg、word.svg：Claude 的星芒标志和字标，出自 dsh-claude-style，属 Anthropic，不适用 MIT 许可。
+
+以上属于 Anthropic 的图案只为致敬原版而保留。权利人要求的话，会从本包里移除。

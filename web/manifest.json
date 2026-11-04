@@ -1,0 +1,44 @@
+{
+  "id": "miyu-webui-theme-claude-style",
+  "version": "0.1.0",
+  "name": {
+    "zh": "Claude 风格",
+    "en": "Claude style",
+    "ja": "Claude スタイル"
+  },
+  "summary": {
+    "zh": "仿 Claude 网页的样子：白底、陶土橙、衬线字的回答",
+    "en": "Looks like the Claude web app: white canvas, clay orange, serif answers",
+    "ja": "Claude のウェブ画面風：白地、テラコッタ、明朝体の回答"
+  },
+  "kind": "optional",
+  "description": {
+    "zh": "一套配色方案「Claude」（浅色白底、深色 #191919，主色 #D97757）和一个主题「Claude 风格」（平的面、细线代替阴影、回答用衬线字、圆角收紧）。移植自 Nwflower/dsh-claude-style（MIT），字体 Inter、Noto Serif 随包带着（SIL OFL 1.1）。"
+  },
+  "text": {
+    "zh": {
+      "name": "Claude 风格",
+      "palette": "Claude",
+      "mascot": "Clawd（螃蟹）"
+    },
+    "en": {
+      "name": "Claude style",
+      "palette": "Claude",
+      "mascot": "Clawd"
+    },
+    "ja": {
+      "name": "Claude スタイル",
+      "palette": "Claude",
+      "mascot": "Clawd"
+    }
+  },
+  "inject": [
+    "slots",
+    "core",
+    "skin~",
+    "settings~"
+  ],
+  "styles": [
+    "style.css"
+  ]
+}

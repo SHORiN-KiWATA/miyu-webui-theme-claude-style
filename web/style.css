@@ -1,0 +1,85 @@
+/* 「Claude 风格」自己加的界面块（首页的问候和用量卡片）。只在选了这个主题时露：都挂在 :root[data-skin="claude"] 下面 */
+.cs-home { display: none; }
+:root[data-skin="claude"] .cs-home { display: block; }
+
+/* 空会话：问候和卡片在上，输入框落到底下（照原版首页） */
+:root[data-skin="claude"] .stage.is-empty { justify-content: flex-start; }
+:root[data-skin="claude"] .stage.is-empty .stage-home { order: 1; padding-top: 56px; }
+:root[data-skin="claude"] .stage.is-empty .composer-dock { order: 2; margin-top: auto; padding-bottom: 18px; }
+
+/* 首页一列 690px：问候、卡片、输入框左边对齐（原版首页） */
+:root[data-skin="claude"] .stage.is-empty .stage-home, :root[data-skin="claude"] .stage.is-empty .composer-dock { box-sizing: border-box; width: min(100%, 724px); padding-left: 18px; padding-right: 18px; }
+:root[data-skin="claude"] .cs-home { max-width: 480px; margin: 0; padding-left: 2px; }
+.cs-greet { display: flex; align-items: center; gap: 10px; margin-bottom: 40px; font: 400 22px/1.3 var(--brand-font, var(--serif)); color: var(--text); }
+.cs-spark { width: 24px; height: 24px; flex: none; background: var(--accent);
+  -webkit-mask: url("brand/spark.svg") center / contain no-repeat; mask: url("brand/spark.svg") center / contain no-repeat; }
+.cs-card { padding: 12px; border-radius: 12px; background: var(--surface-2); font: 12px/1.4 var(--font-ui); color: var(--text-soft); }
+.cs-card-head { display: flex; justify-content: space-between; margin-bottom: 10px; }
+.cs-tabs { display: flex; gap: 2px; }
+.cs-tabs > * { padding: 2px 8px; border: 0; border-radius: 4px; background: none; color: var(--text-soft); font: inherit; cursor: pointer; }
+.cs-tabs > .is-on { background: color-mix(in srgb, var(--text) 8%, transparent); color: var(--text); }
+.cs-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 12px; }
+.cs-tile { display: flex; flex-direction: column; gap: 2px; padding: 6px 8px; border-radius: 6px; background: color-mix(in srgb, var(--text) 7%, transparent); min-width: 0; }
+.cs-tile strong { overflow: hidden; color: var(--text); font-size: 13px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.cs-heat { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 1fr); gap: 2px; margin-bottom: 10px; }
+.cs-heat > i { aspect-ratio: 1; border-radius: 2px; background: color-mix(in srgb, var(--text) 9%, transparent); }
+.cs-heat > i.l1 { background: color-mix(in srgb, var(--link) 25%, var(--surface-2)); }
+.cs-heat > i.l2 { background: color-mix(in srgb, var(--link) 45%, var(--surface-2)); }
+.cs-heat > i.l3 { background: color-mix(in srgb, var(--link) 70%, var(--surface-2)); }
+.cs-heat > i.l4 { background: var(--link); }
+
+
+/* 发送按钮画成回车（照原版：框里右边一个浅灰的 ↵）；在跑时按钮里是停的方块，不画 */
+:root[data-skin="claude"] .composer-send > svg { display: none; }
+:root[data-skin="claude"] .composer-send:has(> svg)::before { content: ""; width: 15px; height: 15px; background: currentColor;
+  -webkit-mask: url("brand/enter.svg") center / contain no-repeat; mask: url("brand/enter.svg") center / contain no-repeat; }
+/* 回答上方收起那一行：一行灰的细字，不画线（claude.ai 的思考摘要） */
+:root[data-skin="claude"] .tl-summary { color: var(--text-soft); font-weight: 400; font-size: 13.5px; }
+:root[data-skin="claude"] .tl-summary .tl-summary-text { color: var(--text-soft); font-weight: 400; }
+:root[data-skin="claude"] .tl-summary.is-failed, :root[data-skin="claude"] .tl-summary.is-failed .tl-summary-text { color: var(--danger); }
+
+/* 左上角「Claude」字标：照字色画（官网左上角没有星芒） */
+.cs-brand { display: flex; align-items: center; gap: 6px; height: 30px; color: var(--text); }
+.cs-brand-word, .cs-account-chevron { display: block; background: currentColor; }
+.cs-brand-word { width: 70px; height: 17px; -webkit-mask: url("brand/word.svg") left center / contain no-repeat; mask: url("brand/word.svg") left center / contain no-repeat; }
+/* 左下角的账号那一行：首字母的小圆头像、名字、下拉记号（官网「s shorin · Ultra ⌄」） */
+.cs-account { display: flex; flex: 1; min-width: 0; align-items: center; gap: 8px; height: 32px; margin-right: 4px; padding: 0 8px; border: 0; border-radius: 8px;
+  background: none; color: var(--text); font: 400 14px/1 var(--font-ui); cursor: pointer; }
+.cs-account:hover { background: color-mix(in srgb, var(--text) 6%, transparent); }
+.cs-account-mark { display: grid; width: 20px; height: 20px; flex: none; place-items: center; border-radius: 50%; background: var(--surface-3); color: var(--text-soft); font: 500 11px/1 var(--font-ui); }
+.cs-account-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.cs-account-chevron { width: 12px; height: 12px; margin-left: auto; color: var(--text-soft);
+  -webkit-mask: url("brand/chevron.svg") center / contain no-repeat; mask: url("brand/chevron.svg") center / contain no-repeat; }
+
+/* 框下面左边的三段（Read / Edit / Yolo）顶替网页原来那个点一下换一级的按钮；原来的藏着、照样点得到 */
+:root[data-skin="claude"] .footer-left > .footer-level, :root[data-skin="claude"] .footer-left > .footer-level + .sep { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+:root[data-skin="claude"] .footer-middle { order: -1; }
+.cs-perm { display: inline-flex; gap: 2px; margin-right: 8px; }
+.cs-perm > button { padding: 3px 12px; border: 0; border-radius: 6px; background: none; color: var(--text-soft); font: 14px/1.4 var(--font-ui); cursor: pointer; }
+.cs-perm > button:hover { color: var(--text); }
+.cs-perm > button.is-on { background: var(--surface-1); color: var(--text); box-shadow: 0 0 0 0.5px var(--line-strong); }
+/* 模型名挪到右边、挨着用量（原版「DeepSeek V4 Flash High」在右边） */
+:root[data-skin="claude"] .footer-left { flex: 1 1 auto; justify-content: flex-end; }
+/* 输入框上面那一排（人格、预设、工作区）：白底细线框、小圆角，照原版「demo-project」「标准模式」 */
+:root[data-skin="claude"] .setup-btn { padding: 4px 10px; border: 1px solid var(--line-strong); border-radius: 6px; background: var(--surface-1); box-shadow: none; color: var(--text); font: 14px/1.4 var(--font-ui); }
+:root[data-skin="claude"] .setup-btn:hover { background: var(--surface-2); }
+
+/* 左上角的会话标题：纯文字、不加框（claude.ai「EAC Linux v2 反作弊系统 ⌄」） */
+:root[data-skin="claude"] .setup-info, :root[data-skin="claude"] .setup-info-part { border: 0; background: none; box-shadow: none; color: var(--text); font: 13.5px/1.4 var(--font-ui); }
+/* 你的话：界面的无衬线字，略小 */
+:root[data-skin="claude"] .user-bubble { font-size: 13.5px; line-height: 1.6; }
+
+/* 时间线点开：每一步的名字不加粗，用时、字数用界面字（原来是等宽字） */
+:root[data-skin="claude"] .tl-name { color: var(--text-soft); font-weight: 500; }
+:root[data-skin="claude"] .tl-time, :root[data-skin="claude"] .tl-count { font: 400 12px var(--font-ui); color: var(--text-faint); }
+:root[data-skin="claude"] .tl-command, :root[data-skin="claude"] .tl-body pre { font-size: 12px; }
+/* 上下文、用量的明细：条子只用陶土橙的深浅，不用金和砖红（这一块里把它们换掉） */
+:root[data-skin="claude"] .ctx-pop {
+  --gold: color-mix(in srgb, var(--accent) 40%, var(--surface-1));
+  --ribbon: var(--accent);
+  --ctx-output: var(--accent);
+  --ctx-title: var(--text);
+}
+/* 换模型的菜单：搜索框白底细线，不铺灰 */
+:root[data-skin="claude"] .model-menu-search { background: var(--surface-1); box-shadow: inset 0 0 0 1px var(--line); }
+/* 提问、确认时网页把框里除了问答面板以外的都藏了，螃蟹待的那一层（composer.float）放出来：它这时举着牌子等你 */
