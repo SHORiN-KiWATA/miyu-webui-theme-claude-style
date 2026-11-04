@@ -1,8 +1,14 @@
-# miyu-webui-theme-claude-style · Claude 风格
+# miyu-webui-theme-claude-style · Claude 风格网页皮肤
 
 [Miyu](https://github.com/miyu-agent/miyu) 网页界面的外观包：仿 Claude 网页的样子，白底、陶土橙、衬线字的回答，输入框上趴着一只像素螃蟹 Clawd。
 
 移植自 Nwflower 的 [dsh-claude-style](https://github.com/Nwflower/dsh-claude-style)。首页照 dsh 原版（问候在顶、用量卡、输入框在底），左栏、对话页照 claude.ai 官网。
+
+![首页](.github/screenshots/home-light.webp)
+
+| 对话 | 对话 · 深色 |
+|---|---|
+| ![对话](.github/screenshots/chat-light.webp) | ![对话 · 深色](.github/screenshots/chat-dark.webp) |
 
 ## 装
 
