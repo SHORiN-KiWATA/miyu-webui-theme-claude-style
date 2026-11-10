@@ -46,7 +46,6 @@
     "tui": {
       "dim": "#91888a",
       "accent": "#d97757",
-      "workspace": "#c46343",
       "full": "#b14a5c",
       "read_only": "#a0741f",
       "thought": "#70686a",
@@ -145,7 +144,6 @@
     "tui": {
       "dim": "#9c9395",
       "accent": "#d97757",
-      "workspace": "#eb9170",
       "full": "#f7768e",
       "read_only": "#e0af68",
       "thought": "#9c9395",
