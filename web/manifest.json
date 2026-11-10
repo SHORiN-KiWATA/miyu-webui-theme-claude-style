@@ -36,7 +36,8 @@
     "slots",
     "core",
     "skin~",
-    "settings~"
+    "settings~",
+    "host?"
   ],
   "styles": [
     "style.css"
