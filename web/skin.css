@@ -12,10 +12,12 @@
 :root[data-skin="claude"] [data-part="composer"] { display: flex; flex-wrap: wrap; align-items: flex-end; box-shadow: none; }
 /* 框里放附件的那一排（挂载位 composer.head）独占一行，在写字的地方上面 */
 :root[data-skin="claude"] [data-part="composer"] > div:has(+ div > [data-part="composer.input"]) { flex: 0 0 100%; }
-:root[data-skin="claude"] [data-part="composer"]:focus-within { box-shadow: 0 0 0 0.5px color-mix(in srgb, var(--text) 30%, transparent); }
+:root[data-skin="claude"] [data-part="composer"]:focus-within { box-shadow: 0 0 0 1px color-mix(in srgb, var(--text) 16%, transparent); }
 :root[data-skin="claude"] [data-part="composer"] > div:has(> [data-part="composer.input"]) { flex: 1 1 60%; min-width: 0; }
 :root[data-skin="claude"] [data-part="composer.bar"] { flex: none; padding: 0 6px 6px 0; }
-:root[data-skin="claude"] [data-part="composer.input"] { padding-bottom: 9px; }
+/* 最矮一行高（上下各 9px 加一行字）：网页把量好的高度写在框上，刚加载时量的那一次早于这套主题的字号、内边距生效，
+   留下的高度矮 5px，字偏下、右边的按钮偏上，直到下一次打字才重量（网页 PR #73 修了；这一条给还没带上它的版本兜底） */
+:root[data-skin="claude"] [data-part="composer.input"] { padding-bottom: 9px; min-height: calc(18px + 22.5px * var(--text-scale)); }
 :root[data-skin="claude"] [data-part="composer.send"] { width: 28px; height: 28px; }
 :root[data-skin="claude"] [data-part="table"] { border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
 /* 框下面那一行：界面的无衬线字，灰（原版「Accept edits ⌄ … DeepSeek V4 Flash High」） */

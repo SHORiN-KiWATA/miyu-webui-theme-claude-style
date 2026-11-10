@@ -112,7 +112,7 @@ export const tokens = {
   '--chip-radius': '999px',
   '--seg-radius': '8px',
   '--seg-thumb-radius': '6px',
-  '--seg-thumb-elev': '0 0 0 0.5px var(--line-strong)',
+  '--seg-thumb-elev': 'inset 0 0 0 1px var(--line-strong)',
   '--knob-elev': '0 1px 2px color-mix(in srgb, var(--text) 20%, transparent)',
   // 动效：Claude 那条快进慢停的曲线
   '--ease-out': 'cubic-bezier(0.165, 0.85, 0.45, 1)',

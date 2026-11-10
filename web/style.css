@@ -57,9 +57,10 @@
 :root[data-skin="claude"] .footer-left > .footer-level, :root[data-skin="claude"] .footer-left > .footer-level + .sep { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 :root[data-skin="claude"] .footer-middle { order: -1; }
 .cs-perm { display: inline-flex; gap: 2px; margin-right: 8px; }
-.cs-perm > button { padding: 3px 12px; border: 0; border-radius: 6px; background: none; color: var(--text-soft); font: 14px/1.4 var(--font-ui); cursor: pointer; }
+.cs-perm > button { padding: 2px 12px; border: 0; border-radius: 6px; background: none; color: var(--text-soft); font: 14px/1.4 var(--font-ui); cursor: pointer; }
 .cs-perm > button:hover { color: var(--text); }
-.cs-perm > button.is-on { background: var(--surface-1); color: var(--text); box-shadow: 0 0 0 0.5px var(--line-strong); }
+/* 选中的那一段：白底、里面一圈 1px 的细线。原来是往外 0.5px 的影：半个像素各家浏览器取整不一样，Firefox 里只画出几条边，底下那条还被这一行裁掉 */
+.cs-perm > button.is-on { background: var(--surface-1); color: var(--text); box-shadow: inset 0 0 0 1px var(--line-strong); }
 /* 模型名挪到右边、挨着用量（原版「DeepSeek V4 Flash High」在右边） */
 :root[data-skin="claude"] .footer-left { flex: 1 1 auto; justify-content: flex-end; }
 /* 输入框上面那一排（人格、预设、工作区）：白底细线框、小圆角，照原版「demo-project」「标准模式」 */
@@ -84,4 +85,25 @@
 }
 /* 换模型的菜单：搜索框白底细线，不铺灰 */
 :root[data-skin="claude"] .model-menu-search { background: var(--surface-1); box-shadow: inset 0 0 0 1px var(--line); }
-/* 提问、确认时网页把框里除了问答面板以外的都藏了，螃蟹待的那一层（composer.float）放出来：它这时举着牌子等你 */
+
+/* 跳到底部：框上面正中的一颗小圆钮（照 claude.ai）。原来在框的右上角，正是螃蟹站的地方，一露出来就把它顶上去 */
+:root[data-skin="claude"] .composer-jump { right: auto; left: calc(50% - 16px); border-radius: 50%; box-shadow: 0 1px 3px color-mix(in srgb, var(--text) 10%, transparent); }
+/* 首页的输入框在最底下：用量明细往上弹（网页当它在正中、往下弹，这里往下就弹到屏幕外面去了） */
+:root[data-skin="claude"] .stage.is-empty .ctx-pop.is-below { top: auto; bottom: calc(100% + 6px); }
+
+/* 右栏（待办、后台任务、文件修改、展示文件）：和左栏一个底色，卡片是平的白面、一圈细线、不要影（照这套主题别处的卡片） */
+:root[data-skin="claude"] .dash { --dash-edge: var(--line); }
+:root[data-skin="claude"] .dash-card, :root[data-skin="claude"] .dash-empty { border-radius: 12px; box-shadow: none; }
+:root[data-skin="claude"] .dash-title { font-weight: 600; letter-spacing: -0.005em; }
+:root[data-skin="claude"] .dash-row { border-radius: 0; }
+:root[data-skin="claude"] .dash-count, :root[data-skin="claude"] .dash-time, :root[data-skin="claude"] .dash-id, :root[data-skin="claude"] .dash-lines { font-family: var(--font-ui); font-variant-numeric: tabular-nums; }
+/* 浮着的右栏（窄屏）：细线代替影 */
+:root[data-skin="claude"] .side-column.is-overlay { border: 1px solid var(--line); box-shadow: 0 8px 28px color-mix(in srgb, var(--text) 12%, transparent); }
+
+/* 语音（网页的软件包 voice，装了语音包才有）。麦克风在回车左边：和回车一样大、一样的小圆角、灰的线条；
+   正在听时陶土橙的音量条、淡橙的底，圆角照这套主题的 6px，不用胶囊 */
+:root[data-skin="claude"] .composer .voice-mic { width: 28px; height: 28px; border-radius: 6px; color: var(--text-soft); }
+:root[data-skin="claude"] .composer .voice-mic:hover { background: color-mix(in srgb, var(--text) 6%, transparent); color: var(--text); }
+:root[data-skin="claude"] .composer .voice-mic.is-recording { border-radius: 6px; background: color-mix(in srgb, var(--accent) 14%, transparent); color: var(--accent); }
+:root[data-skin="claude"] .composer .voice-mic .icon { width: 16px; height: 16px; }
+:root[data-skin="claude"] .composer .composer-send-side:not(:empty) { margin-right: 2px; }
