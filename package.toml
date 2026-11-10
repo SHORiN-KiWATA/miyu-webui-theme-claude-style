@@ -1,6 +1,6 @@
 # 外观包「Claude 风格」：网页的主题、配色方案，照 Nwflower/dsh-claude-style 移植。
 [package]
-version = "0.1.3"
+version = "0.1.4"
 name = { en = "Claude-style web skin", zh = "Claude 风格网页皮肤", ja = "Claude スタイルのウェブスキン" }
 summary = { en = "Looks like the Claude web app: white canvas, clay orange, serif answers", zh = "仿 Claude 网页的样子：白底、陶土橙、衬线字的回答", ja = "Claude のウェブ画面風：白地、テラコッタ、明朝体の回答" }
 author = "SHORiN-KiWATA"
