@@ -1,9 +1,10 @@
 // @ts-check
-//! 框下面左边的「Read / Edit / Yolo」三段（照原版首页那一排）：对应 Miyu 的只读、工作区、开放权限。
+//! 框下面左边的「Read / Yolo」两段（照原版首页那一排）：对应 Miyu 的只读、开放权限（2026-11-10 项目主人：核心去掉了工作区那一级，
+//! 原来的 Edit 一段跟着去掉）。
 //! 自己不发协议：点了哪一段，就照网页原来那个权限按钮（`.footer-level`，点一下换下一级）点到那一级为止，拒绝的提示、新会话
 //! 先记着等第一句话这些照网页原来的走。原来的按钮藏着（style.css），级别照它身上的 `level-<级别>` 读。
 
-const SEGS = [['read_only', 'Read'], ['workspace', 'Edit'], ['full', 'Yolo']];
+const SEGS = [['read_only', 'Read'], ['full', 'Yolo']];
 const LEVELS = SEGS.map(([k]) => k);
 
 /** 网页原来那个按钮这时是哪一级 @param {Element|null} button */

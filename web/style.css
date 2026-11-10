@@ -53,7 +53,7 @@
 .cs-account-chevron { width: 12px; height: 12px; margin-left: auto; color: var(--text-soft);
   -webkit-mask: url("brand/chevron.svg") center / contain no-repeat; mask: url("brand/chevron.svg") center / contain no-repeat; }
 
-/* 框下面左边的三段（Read / Edit / Yolo）顶替网页原来那个点一下换一级的按钮；原来的藏着、照样点得到 */
+/* 框下面左边的两段（Read / Yolo）顶替网页原来那个点一下换一级的按钮；原来的藏着、照样点得到 */
 :root[data-skin="claude"] .footer-left > .footer-level, :root[data-skin="claude"] .footer-left > .footer-level + .sep { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 :root[data-skin="claude"] .footer-middle { order: -1; }
 .cs-perm { display: inline-flex; gap: 2px; margin-right: 8px; }
