@@ -8,4 +8,4 @@ jobs:
     permissions:
       contents: write
     with:
-      package: miyu-webui-theme-claude-style
+      package: webui-theme-claude-style
