@@ -26,6 +26,8 @@ const SHEETS = {
   'poke-left': { frames: 10, box: [24, 20, 27, 16], still: 0 },
   'poke-right': { frames: 10, box: [21, 20, 27, 16], still: 0 },
   'tickle': { frames: 16, box: [23, 18, 26, 18], still: 0 },
+  // 被拎起来（拖着）：举着两只钳子、腿悬着，mascot/drag.png，原版就有的那一张，一直循环
+  'drag': { frames: 8, box: [23, 14, 26, 22], still: 0 },
 };
 /** 放一遍就回去的 */
 for (const n of ['idle-look', 'idle-wave', 'idle-laptop', 'happy', 'error', 'waking', 'poke-left', 'poke-right', 'tickle']) if (SHEETS[n]) SHEETS[n].loop = false;
