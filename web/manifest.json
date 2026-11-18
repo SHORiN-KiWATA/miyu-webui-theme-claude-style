@@ -20,6 +20,9 @@
       "name": "Claude 风格",
       "palette": "Claude",
       "mascot": "Clawd（螃蟹）",
+      "account": {
+        "you": "你"
+      },
       "home": {
         "overview": "概览",
         "range": {
@@ -43,6 +46,9 @@
       "name": "Claude style",
       "palette": "Claude",
       "mascot": "Clawd",
+      "account": {
+        "you": "You"
+      },
       "home": {
         "overview": "Overview",
         "range": {
@@ -66,6 +72,9 @@
       "name": "Claude スタイル",
       "palette": "Claude",
       "mascot": "Clawd",
+      "account": {
+        "you": "あなた"
+      },
       "home": {
         "overview": "概要",
         "range": {

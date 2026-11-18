@@ -7,7 +7,7 @@ process.env.TZ = 'Asia/Tokyo';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { installDom, shownText, settle } from './dom.js';
+import { installDom, shownText, settle, textOf as sharedTextOf } from './dom.js';
 
 installDom();
 const { home } = await import('../web/home.js');
@@ -16,12 +16,7 @@ const manifest = JSON.parse(readFileSync(new URL('../web/manifest.json', import.
 const DAY = 86400000;
 const NOW = Date.now();
 
-/** 照网页的 `ctx.text`：照路径取一句、`{名字}` 换成字段，找不到的回路径本身 @param {string} lang */
-const textOf = (lang) => (/** @type {string} */ path, /** @type {Record<string, unknown>} */ fields = {}) => {
-  const v = path.split('.').reduce((/** @type {any} */ o, k) => (o == null ? o : o[k]), manifest.text?.[lang]);
-  if (typeof v !== 'string') return path;
-  return v.replace(/\{(\w+)\}/g, (/** @type {string} */ all, /** @type {string} */ k) => (fields[k] == null ? all : String(fields[k])));
-};
+const textOf = (/** @type {string} */ lang) => sharedTextOf(manifest, lang);
 
 /** 四个会话：s4 是聊天平台上的，核心的 `session.list` 只列本机的、不列它；`at` 是它最后一次用模型 */
 const SESSIONS = [

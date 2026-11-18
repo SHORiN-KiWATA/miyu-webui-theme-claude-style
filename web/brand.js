@@ -1,6 +1,7 @@
 // @ts-check
 //! 左栏的两处（照 claude.ai 官网）：左上角「Claude」字标顶替人格的头像和名字（挂载位 `sidebar.brand`），左下角的账号那一行：
 //! 圆头像（设置「访问」页设了头像的照它画，没设的写名字首字母）、「关于你」里的名字、一个下拉的记号，点了打开设置的「用户身份」（挂载位 `sidebar.actions`）。字标的 SVG 出自 dsh-claude-style。
+//! 没设名字时写的「你」照界面语言取（manifest.json 的 `text.*.account.you`）。
 
 /** @param {string} cls @param {string} [label] */
 const span = (cls, label) => {
@@ -44,11 +45,15 @@ export function account(ctx) {
   };
   // 跟着这个包撤回：停用、重来时退订，不把旧的这一行留在网页的监听表里
   if (me?.watch) ctx.effect(() => me.watch(face));
-  const load = () => ctx.core.request('config.get', { keys: ['profile.name'] }).then((/** @type {any} */ got) => {
-    const who = got?.items?.['profile.name']?.value;
-    name.textContent = typeof who === 'string' && who.trim() ? who.trim() : '你';
+  /** 写上名字和首字母；没设名字、读不到配置的写界面语言的「你」 @param {string} [who] */
+  const show = (who) => {
+    name.textContent = who || ctx.text('account.you');
     letter = [...name.textContent][0]?.toUpperCase() ?? '';
     face();
-  }).catch(() => { name.textContent = '你'; letter = '你'; face(); });
+  };
+  const load = () => ctx.core.request('config.get', { keys: ['profile.name'] }).then((/** @type {any} */ got) => {
+    const who = got?.items?.['profile.name']?.value;
+    show(typeof who === 'string' ? who.trim() : '');
+  }).catch(() => show());
   return { el, load };
 }
