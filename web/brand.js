@@ -42,7 +42,8 @@ export function account(ctx) {
       initial.replaceChildren(pic);
     } else initial.textContent = letter;
   };
-  me?.watch?.(face);
+  // 跟着这个包撤回：停用、重来时退订，不把旧的这一行留在网页的监听表里
+  if (me?.watch) ctx.effect(() => me.watch(face));
   const load = () => ctx.core.request('config.get', { keys: ['profile.name'] }).then((/** @type {any} */ got) => {
     const who = got?.items?.['profile.name']?.value;
     name.textContent = typeof who === 'string' && who.trim() ? who.trim() : '你';
