@@ -19,17 +19,71 @@
     "zh": {
       "name": "Claude 风格",
       "palette": "Claude",
-      "mascot": "Clawd（螃蟹）"
+      "mascot": "Clawd（螃蟹）",
+      "home": {
+        "overview": "概览",
+        "range": {
+          "all": "全部",
+          "30": "30 天",
+          "7": "7 天"
+        },
+        "sessions": "会话数",
+        "requests": "请求数",
+        "tokens": "Token 总量",
+        "active": "活跃天数",
+        "busiest": "用得最多的一天",
+        "model": "最常用模型",
+        "cell": "{day}：{n} token",
+        "empty": "还没有用量。",
+        "under_a_book": "你的 Token 用量还不到一本《了不起的盖茨比》。",
+        "books": "你的 Token 用量相当于 {n} 本《了不起的盖茨比》。"
+      }
     },
     "en": {
       "name": "Claude style",
       "palette": "Claude",
-      "mascot": "Clawd"
+      "mascot": "Clawd",
+      "home": {
+        "overview": "Overview",
+        "range": {
+          "all": "All",
+          "30": "30 days",
+          "7": "7 days"
+        },
+        "sessions": "Sessions",
+        "requests": "Requests",
+        "tokens": "Total tokens",
+        "active": "Active days",
+        "busiest": "Busiest day",
+        "model": "Top model",
+        "cell": "{day}: {n} tokens",
+        "empty": "No usage yet.",
+        "under_a_book": "You have used fewer tokens than one copy of The Great Gatsby.",
+        "books": "You have used as many tokens as {n} copies of The Great Gatsby."
+      }
     },
     "ja": {
       "name": "Claude スタイル",
       "palette": "Claude",
-      "mascot": "Clawd"
+      "mascot": "Clawd",
+      "home": {
+        "overview": "概要",
+        "range": {
+          "all": "すべて",
+          "30": "30 日",
+          "7": "7 日"
+        },
+        "sessions": "セッション数",
+        "requests": "リクエスト数",
+        "tokens": "トークン合計",
+        "active": "利用した日数",
+        "busiest": "いちばん使った日",
+        "model": "よく使うモデル",
+        "cell": "{day}：{n} トークン",
+        "empty": "まだ使用量がありません。",
+        "under_a_book": "トークン使用量は『グレート・ギャツビー』1 冊分に届いていません。",
+        "books": "トークン使用量は『グレート・ギャツビー』{n} 冊分です。"
+      }
     }
   },
   "inject": [
