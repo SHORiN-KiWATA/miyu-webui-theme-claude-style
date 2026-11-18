@@ -71,5 +71,15 @@ export function shownText(root) {
   return root.all().flatMap((e) => [e.textContent, e.attrs.title ?? '', e.attrs['aria-label'] ?? '']).join('\n');
 }
 
+/**
+ * 照网页的 `ctx.text`：照路径取 manifest.json 里这种语言的一句、`{名字}` 换成字段，找不到的回路径本身
+ * @param {any} manifest @param {string} lang
+ */
+export const textOf = (manifest, lang) => (/** @type {string} */ path, /** @type {Record<string, unknown>} */ fields = {}) => {
+  const v = path.split('.').reduce((/** @type {any} */ o, k) => (o == null ? o : o[k]), manifest.text?.[lang]);
+  if (typeof v !== 'string') return path;
+  return v.replace(/\{(\w+)\}/g, (/** @type {string} */ all, /** @type {string} */ k) => (fields[k] == null ? all : String(fields[k])));
+};
+
 /** 等手上的异步做完（几轮微任务加一轮宏任务） */
 export const settle = () => new Promise((done) => setImmediate(done));
