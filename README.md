@@ -22,6 +22,8 @@ miyu pkg install webui-theme-claude-style
 
 改完在仓库根目录跑 `node --test tests/`（Node 22.7 以上，不用装别的）。发版时 `package.toml` 和 `web/manifest.json` 的 `version` 一起改，测试会核对两处一样。
 
+`web/sprite.js`（吉祥物的播放器）和 `web/body.js`（吉祥物的身子）在本包和大肥鱼深海女仆工坊网页皮肤（[miyu-webui-theme-deep-whale](https://github.com/SHORiN-KiWATA/miyu-webui-theme-deep-whale)）里各放一份，内容完全相同，所以改其中一处时要在两个包里同时改。测试会拿本仓库旁边 `miyu-webui-theme-deep-whale` 目录里的同名文件逐字节对比，也可以用环境变量 `MIYU_THEME_PEER` 指定另一个包的位置；如果没有克隆另一个包，这两条测试会跳过。以后网页界面会提供共享模块，到时这两个文件就不用各放一份了。
+
 ## 授权
 
 代码 MIT（见 LICENSE）。字体 Inter、Noto Serif 是 OFL。Clawd 帧图和 Claude 的标志属于 Anthropic，不在 MIT 范围内，见 NOTICE。
