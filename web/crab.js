@@ -8,7 +8,7 @@
 import { character } from './sprite.js';
 
 /** 动画表（帧数、每帧的裁切框 box、少动效时停的 still） @type {Record<string, {frames: number, box: number[], still: number, loop?: boolean}>} */
-const SHEETS = {
+export const SHEETS = {
   'idle': { frames: 24, box: [24, 20, 24, 16], still: 0 },
   'idle-look': { frames: 31, box: [24, 20, 24, 16], still: 0 },
   'idle-wave': { frames: 12, box: [24, 15, 24, 21], still: 0 },
@@ -26,11 +26,13 @@ const SHEETS = {
   'poke-left': { frames: 10, box: [24, 20, 27, 16], still: 0 },
   'poke-right': { frames: 10, box: [21, 20, 27, 16], still: 0 },
   'tickle': { frames: 16, box: [23, 18, 26, 18], still: 0 },
+  // 戴着耳机听音乐、头上冒音符：闲着时的小动作之一（同大肥鱼包里 Deepy 的 music）
+  'music': { frames: 16, box: [22, 1, 30, 35], still: 0 },
   // 被拎起来（拖着）：举着两只钳子、腿悬着，mascot/drag.png，原版就有的那一张，一直循环
   'drag': { frames: 8, box: [23, 14, 26, 22], still: 0 },
 };
 /** 放一遍就回去的 */
-for (const n of ['idle-look', 'idle-wave', 'idle-laptop', 'happy', 'error', 'waking', 'poke-left', 'poke-right', 'tickle']) if (SHEETS[n]) SHEETS[n].loop = false;
+for (const n of ['idle-look', 'idle-wave', 'idle-laptop', 'music', 'happy', 'error', 'waking', 'poke-left', 'poke-right', 'tickle']) if (SHEETS[n]) SHEETS[n].loop = false;
 
 /** @param {any} ctx */
 export function mascot(ctx) {
@@ -38,7 +40,7 @@ export function mascot(ctx) {
     id: 'clawd', grid: [52, 36], cell: 2, ms: 80, ink: true,
     base: new URL('mascot/', import.meta.url), sheets: SHEETS,
     map: { idle: 'idle', thinking: 'thinking', writing: 'typing', tool: 'building', subagent: 'conducting', waiting: 'notification', compacting: 'compacting', done: 'happy', error: 'error', interrupted: 'error' },
-    extras: ['idle-look', 'idle-wave', 'idle-laptop'],
+    extras: ['idle-look', 'idle-wave', 'idle-laptop', 'music'],
     react: { left: 'poke-left', right: 'poke-right', tickle: 'tickle' },
     right: 12,
   });
